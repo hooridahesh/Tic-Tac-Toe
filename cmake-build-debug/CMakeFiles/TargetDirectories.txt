@@ -1,0 +1,3 @@
+C:/Users/Dahesh/Desktop/mini/cmake-build-debug/CMakeFiles/mini.dir
+C:/Users/Dahesh/Desktop/mini/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dahesh/Desktop/mini/cmake-build-debug/CMakeFiles/rebuild_cache.dir
