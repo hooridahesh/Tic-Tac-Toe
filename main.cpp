@@ -15,17 +15,17 @@ public:
 
     void doz3();
 
-    void setP1Zamin1(int p);
+    bool setP1Zamin1(int p);
 
-    void setP1Zamin2(int p);
+    bool setP1Zamin2(int p);
 
-    void setP1Zamin3(int p);
+    bool setP1Zamin3(int p);
 
-    void setP2Zamin1(int p);
+    bool setP2Zamin1(int p);
 
-    void setP2Zamin2(int p);
+    bool setP2Zamin2(int p);
 
-    void setP2Zamin3(int p);
+    bool setP2Zamin3(int p);
 
     bool endGameZamin1();
 
@@ -49,7 +49,7 @@ public:
 };
 
 /*Hoori3*/
-void game::setP1Zamin1(int p) {
+bool game::setP1Zamin1(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -69,12 +69,14 @@ void game::setP1Zamin1(int p) {
     }
     if (p >= 1 && p <= 9 && flag == 0) {
         p1.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void game::setP2Zamin1(int p) {
+bool game::setP2Zamin1(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -94,12 +96,14 @@ void game::setP2Zamin1(int p) {
     }
     if (p >= 1 && p <= 9 && flag == 0) {
         p2.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void game::setP1Zamin2(int p) {
+bool game::setP1Zamin2(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -119,12 +123,14 @@ void game::setP1Zamin2(int p) {
     }
     if (p >= 1 && p <= 17 && flag == 0) {
         p1.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void game::setP2Zamin2(int p) {
+bool game::setP2Zamin2(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -144,12 +150,14 @@ void game::setP2Zamin2(int p) {
     }
     if (p >= 1 && p <= 17 && flag == 0) {
         p2.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void game::setP1Zamin3(int p) {
+bool game::setP1Zamin3(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -169,12 +177,14 @@ void game::setP1Zamin3(int p) {
     }
     if (p >= 1 && p <= 21 && flag == 0) {
         p1.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void game::setP2Zamin3(int p) {
+bool game::setP2Zamin3(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
@@ -194,8 +204,10 @@ void game::setP2Zamin3(int p) {
     }
     if (p >= 1 && p <= 21 && flag == 0) {
         p2.push_back(p);
+        return true;
     } else {
         cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
