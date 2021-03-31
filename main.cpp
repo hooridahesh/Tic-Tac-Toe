@@ -2389,7 +2389,40 @@ void game::doz3() {
 }
 
 /*Hoori2*/
+/*Hoori4*/
+void help(){
+    cout<<endl<<"=========================================="<<endl;
+    cout<<"Name Zamin: 1"<<endl;
+    cout<<"Andaze Zamin: 9 khane"<<endl;
+    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
+    cout<<"Format Koli Zamin: "<<endl;
+    cout<<"1---2---3"<<endl<<"|   |   |"<<endl<<"4---5---6"<<endl<<"|   |   |"<<endl<<"7---8---9"<<endl;
+    cout<<endl<<"=========================================="<<endl;
+    cout<<"Name Zamin: 2"<<endl;
+    cout<<"Andaze Zamin: 17 khane"<<endl;
+    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
+    cout<<"Format Koli Zamin: "<<endl;
+    cout<<"1 ---- 2 ---- 3"<<endl<<"|      |      |"<<endl<<"|      |      |"<<endl<<"|  4 - 5 - 6  |"<<endl<<"|  |   |   |  |"<<endl<<"7--8---9--1O--11"<<endl<<"|  |   |   |  |"<<endl<<"| 12 -13- 14  |"<<endl<<"|      |      |"<<endl<<"|      |      |"<<endl<<"15----16 ----17"<<endl;
+    cout<<endl<<"=========================================="<<endl;
+    cout<<"Name Zamin: 3"<<endl;
+    cout<<"Andaze Zamin: 21 khane"<<endl;
+    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
+    cout<<"Format Koli Zamin: "<<endl;
+    cout<<" 1------2------3"<<endl<<" |      |      |"<<endl<<" |      |      |"<<endl<<" |  4---5---6  |"<<endl<<" |  |   |   |  |"<<endl<<" |  | 7-8-9 |  |"<<endl<<" |  | |   | |  |"<<endl<<"10-11-12 13-14-15"<<endl<<" |  | |   | |  |"<<endl<<" |  |16---17|  |"<<endl<<" |  |/     \\|  |"<<endl<<" | 18------19  |"<<endl<<" |/           \\|"<<endl<<"20-------------21"<<endl;
+    cout<<endl<<"=========================================="<<endl;
+}
+void menu(){
+    cout<<endl<<"******************************************"<<endl;
+    cout<<"1. Entekhabe Zamin 1"<<endl;
+    cout<<"2. Entekhabe Zamin 2"<<endl;
+    cout<<"3. Entekhabe Zamin 3"<<endl;
+    cout<<"4. Help"<<endl;
+    cout<<"5. Exit"<<endl;
+    cout<<"Adade Morede Nazar ra Vared Namaiid: :))"<<endl;
+}
+/*Hoori4*/
 int main() {
-
+    menu();
+    help();
     return 0;
 }
