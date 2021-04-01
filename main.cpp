@@ -8,12 +8,15 @@ class game {
 private:
     vector<int> p1;
     vector<int> p2;
+    string answer;
 public:
     void doz1();
 
     void doz2();
 
     void doz3();
+
+    string getAnswer();
 
     bool setP1Zamin1(int p);
 
@@ -71,7 +74,7 @@ bool game::setP1Zamin1(int p) {
         p1.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -98,7 +101,7 @@ bool game::setP2Zamin1(int p) {
         p2.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -125,7 +128,7 @@ bool game::setP1Zamin2(int p) {
         p1.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -152,7 +155,7 @@ bool game::setP2Zamin2(int p) {
         p2.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -179,7 +182,7 @@ bool game::setP1Zamin3(int p) {
         p1.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -206,7 +209,7 @@ bool game::setP2Zamin3(int p) {
         p2.push_back(p);
         return true;
     } else {
-        cout << "Khane vared shode mojod nist!!" << endl;
+        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -1299,13 +1302,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer = "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer = "+";
     } else {
-        cout << "1";
+        answer = "1";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -1322,13 +1325,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "2";
+        answer += "2";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -1345,14 +1348,14 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "3";
+        answer += "3";
     }
-    cout << endl;
-    cout << "|   |   |" << endl;
+    answer += "\n";
+    answer += "|   |   |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -1369,13 +1372,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "4";
+        answer += "4";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -1392,13 +1395,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "5";
+        answer += "5";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -1415,14 +1418,14 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "6";
+        answer += "6";
     }
-    cout << endl;
-    cout << "|   |   |" << endl;
+    answer += "\n";
+    answer += "|   |   |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -1439,13 +1442,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "7";
+        answer += "7";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -1462,13 +1465,13 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "8";
+        answer += "8";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -1485,14 +1488,14 @@ void game::doz1() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "9";
+        answer += "9";
     }
     flag = 0;
-    cout << endl << endl << "==================================" << endl;
+    answer += "\n\n==================================\n";
 }
 
 void game::doz2() {
@@ -1514,13 +1517,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer = "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer = "+ ";
     } else {
-        cout << "1 ";
+        answer = "1 ";
     }
-    cout << "----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -1537,13 +1540,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " * ";
+        answer += " * ";
     } else if (flag == 2) {
-        cout << " + ";
+        answer += " + ";
     } else {
-        cout << " 2 ";
+        answer += " 2 ";
     }
-    cout << "----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -1560,15 +1563,15 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << " 3";
+        answer += " 3";
     }
-    cout << endl << "|      |      |" << endl;
-    cout << "|      |      |" << endl;
-    cout << "| ";
+    answer += "\n|      |      |\n";
+    answer += "|      |      |\n";
+    answer += "| ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -1585,13 +1588,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << " 4 ";
+        answer += " 4 ";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -1608,13 +1611,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << " 5 ";
+        answer += " 5 ";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -1631,14 +1634,14 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << " 6 ";
+        answer += " 6 ";
     }
-    cout << " |" << endl;
-    cout << "|  |   |   |  |" << endl;
+    answer += " |\n";
+    answer += "|  |   |   |  |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -1655,13 +1658,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "7";
+        answer += "7";
     }
-    cout << "--";
+    answer += "--";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -1678,13 +1681,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "8";
+        answer += "8";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -1701,13 +1704,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "9";
+        answer += "9";
     }
-    cout << "--";
+    answer += "--";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 10) {
@@ -1724,13 +1727,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "-*";
+        answer += "-*";
     } else if (flag == 2) {
-        cout << "-+";
+        answer += "-+";
     } else {
-        cout << "1O";
+        answer += "1O";
     }
-    cout << "--";
+    answer += "--";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 11) {
@@ -1747,14 +1750,14 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "11";
+        answer += "11";
     }
-    cout << endl << "|  |   |   |  |" << endl;
-    cout << "| ";
+    answer += "\n|  |   |   |  |\n";
+    answer += "| ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 12) {
@@ -1771,13 +1774,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "12";
+        answer += "12";
     }
-    cout << " -";
+    answer += " -";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 13) {
@@ -1794,13 +1797,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "13";
+        answer += "13";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 14) {
@@ -1817,15 +1820,15 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "  *";
+        answer += "  *";
     } else if (flag == 2) {
-        cout << "  +";
+        answer += "  +";
     } else {
-        cout << " 14";
+        answer += " 14";
     }
-    cout << "  |";
-    cout << endl << "|      |      |" << endl;
-    cout << "|      |      |" << endl;
+    answer += "  |";
+    answer += "\n|      |      |\n";
+    answer += "|      |      |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 15) {
@@ -1842,13 +1845,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer += "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer += "+ ";
     } else {
-        cout << "15";
+        answer += "15";
     }
-    cout << "----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -1865,13 +1868,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " * ";
+        answer += " * ";
     } else if (flag == 2) {
-        cout << " + ";
+        answer += " + ";
     } else {
-        cout << "16 ";
+        answer += "16 ";
     }
-    cout << "----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 17) {
@@ -1888,13 +1891,13 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "17";
+        answer += "17";
     }
-    cout << endl << endl << "==================================" << endl;
+    answer += "\n\n==================================\n";
 }
 /*Hoori1*/
 /*Hoori2*/
@@ -1917,13 +1920,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer = " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer = " +";
     } else {
-        cout << " 1";
+        answer = " 1";
     }
-    cout << "------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -1940,13 +1943,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "2";
+        answer += "2";
     }
-    cout << "------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -1963,13 +1966,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "3";
+        answer += "3";
     }
-    cout << endl << " |      |      |" << endl << " |      |      |" << endl << " |  ";
+    answer += "\n |      |      |\n |      |      |\n |  ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -1986,13 +1989,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "4";
+        answer += "4";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -2009,13 +2012,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "5";
+        answer += "5";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -2032,13 +2035,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "6";
+        answer += "6";
     }
-    cout << "  |" << endl << " |  |   |   |  |" << endl << " |  | ";
+    answer += "  |\n |  |   |   |  |\n |  | ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -2055,13 +2058,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "7";
+        answer += "7";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -2078,13 +2081,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "8";
+        answer += "8";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -2101,13 +2104,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "9";
+        answer += "9";
     }
-    cout << " |  |" << endl << " |  | |   | |  |" << endl;
+    answer += " |  |\n |  | |   | |  |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 10) {
@@ -2124,13 +2127,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "10";
+        answer += "10";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 11) {
@@ -2147,13 +2150,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "11";
+        answer += "11";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 12) {
@@ -2170,13 +2173,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer += "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer += "+ ";
     } else {
-        cout << "12";
+        answer += "12";
     }
-    cout << " ";
+    answer += " ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 13) {
@@ -2193,13 +2196,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer += "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer += "+ ";
     } else {
-        cout << "13";
+        answer += "13";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 14) {
@@ -2216,13 +2219,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer += "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer += "+ ";
     } else {
-        cout << "14";
+        answer += "14";
     }
-    cout << "-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 15) {
@@ -2239,13 +2242,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "15";
+        answer += "15";
     }
-    cout << endl << " |  | |   | |  |" << endl << " |  |";
+    answer += "\n |  | |   | |  |\n |  |";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 16) {
@@ -2262,13 +2265,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "16";
+        answer += "16";
     }
-    cout << "---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 17) {
@@ -2285,13 +2288,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "* ";
+        answer += "* ";
     } else if (flag == 2) {
-        cout << "+ ";
+        answer += "+ ";
     } else {
-        cout << "17";
+        answer += "17";
     }
-    cout << "|  |" << endl << " |  |/     \\|  |" << endl << " | ";
+    answer += "|  |\n |  |/     \\|  |\n | ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 18) {
@@ -2308,13 +2311,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "18";
+        answer += "18";
     }
-    cout << "------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 19) {
@@ -2331,13 +2334,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "-*";
+        answer += "-*";
     } else if (flag == 2) {
-        cout << "-+";
+        answer += "-+";
     } else {
-        cout << "19";
+        answer += "19";
     }
-    cout << "  |" << endl << " |/           \\|" << endl;
+    answer += "  |\n |/           \\|\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 20) {
@@ -2354,13 +2357,13 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << " *";
+        answer += " *";
     } else if (flag == 2) {
-        cout << " +";
+        answer += " +";
     } else {
-        cout << "20";
+        answer += "20";
     }
-    cout << "-------------";
+    answer += "-------------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 21) {
@@ -2377,52 +2380,60 @@ void game::doz3() {
         }
     }
     if (flag == 1) {
-        cout << "*";
+        answer += "*";
     } else if (flag == 2) {
-        cout << "+";
+        answer += "+";
     } else {
-        cout << "21";
+        answer += "21";
     }
-    cout << endl << endl;
     flag = 0;
-    cout << "========================================" << endl;
+    answer += "\n\n========================================\n";
 }
 
+string game::getAnswer() {
+    return answer;
+}
 /*Hoori2*/
 /*Hoori4*/
-void help(){
-    cout<<endl<<"=========================================="<<endl;
-    cout<<"Name Zamin: 1"<<endl;
-    cout<<"Andaze Zamin: 9 khane"<<endl;
-    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
-    cout<<"Format Koli Zamin: "<<endl;
-    cout<<"1---2---3"<<endl<<"|   |   |"<<endl<<"4---5---6"<<endl<<"|   |   |"<<endl<<"7---8---9"<<endl;
-    cout<<endl<<"=========================================="<<endl;
-    cout<<"Name Zamin: 2"<<endl;
-    cout<<"Andaze Zamin: 17 khane"<<endl;
-    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
-    cout<<"Format Koli Zamin: "<<endl;
-    cout<<"1 ---- 2 ---- 3"<<endl<<"|      |      |"<<endl<<"|      |      |"<<endl<<"|  4 - 5 - 6  |"<<endl<<"|  |   |   |  |"<<endl<<"7--8---9--1O--11"<<endl<<"|  |   |   |  |"<<endl<<"| 12 -13- 14  |"<<endl<<"|      |      |"<<endl<<"|      |      |"<<endl<<"15----16 ----17"<<endl;
-    cout<<endl<<"=========================================="<<endl;
-    cout<<"Name Zamin: 3"<<endl;
-    cout<<"Andaze Zamin: 21 khane"<<endl;
-    cout<<"Tedad khanehaye posht sar ham baraye bord: 3 ta"<<endl;
-    cout<<"Format Koli Zamin: "<<endl;
-    cout<<" 1------2------3"<<endl<<" |      |      |"<<endl<<" |      |      |"<<endl<<" |  4---5---6  |"<<endl<<" |  |   |   |  |"<<endl<<" |  | 7-8-9 |  |"<<endl<<" |  | |   | |  |"<<endl<<"10-11-12 13-14-15"<<endl<<" |  | |   | |  |"<<endl<<" |  |16---17|  |"<<endl<<" |  |/     \\|  |"<<endl<<" | 18------19  |"<<endl<<" |/           \\|"<<endl<<"20-------------21"<<endl;
-    cout<<endl<<"=========================================="<<endl;
+string help() {
+    string str = "\n==========================================\n";
+    str += "Name Zamin: 1\n";
+    str += "Andaze Zamin: 9 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
+    str += "\n==========================================\n";
+    str += "Name Zamin: 2\n";
+    str += "Andaze Zamin: 17 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |   |   |  |\n7--8---9--1O--11\n|  |   |   |  |\n| 12 -13- 14  |\n|      |      |\n|      |      |\n15----16 ----17\n";
+    str += "\n==========================================\n";
+    str += "Name Zamin: 3\n";
+    str += "Andaze Zamin: 21 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += " 1------2------3\n |      |      |\n |      |      |\n |  4---5---6  |\n |  |   |   |  |\n |  | 7-8-9 |  |\n |  | |   | |  |\n10-11-12 13-14-15\n |  | |   | |  |\n |  |16---17|  |\n |  |/     \\|  |\n | 18------19  |\n |/           \\|\n20-------------21\n";
+    str += "\n==========================================\n";
+    return str;
 }
-void menu(){
-    cout<<endl<<"******************************************"<<endl;
-    cout<<"1. Entekhabe Zamin 1"<<endl;
-    cout<<"2. Entekhabe Zamin 2"<<endl;
-    cout<<"3. Entekhabe Zamin 3"<<endl;
-    cout<<"4. Help"<<endl;
-    cout<<"5. Exit"<<endl;
-    cout<<"Adade Morede Nazar ra Vared Namaiid: :))"<<endl;
+
+string menu() {
+    string str;
+    str = "\n******************************************\n";
+    str += "1. Entekhabe Zamin 1\n";
+    str += "2. Entekhabe Zamin 2\n";
+    str += "3. Entekhabe Zamin 3\n";
+    str += "4. Help\n";
+    str += "5. Exit\n";
+    str += "Adade Morede Nazar ra Vared Namaiid: :))\n";
+    return str;
 }
+
 /*Hoori4*/
 int main() {
-    menu();
-    help();
+    cout << menu();
+
+    cout << help();
     return 0;
 }
