@@ -1588,9 +1588,9 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     } else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     } else {
         answer += " 4 ";
     }
@@ -1611,9 +1611,9 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     } else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     } else {
         answer += " 5 ";
     }
@@ -1634,9 +1634,9 @@ void game::doz2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     } else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     } else {
         answer += " 6 ";
     }
@@ -2435,5 +2435,6 @@ int main() {
     cout << menu();
 
     cout << help();
+
     return 0;
 }
