@@ -5018,3 +5018,78 @@ int main()
 		write(sock, boost::asio::buffer(msg2));
 	}
 }
+
+/*rezvan3|player1*/
+#include<iostream>
+#include<boost/asio.hpp>
+#include<thread>
+#include<vector>
+#include<string>
+
+using namespace std;
+using namespace boost::asio;
+using namespace ip;
+
+string menu();
+void help();
+
+int main()
+{
+    io_service io;
+    tcp::socket sock(io);
+    sock.connect(tcp::endpoint(address::from_string("127.0.0.1"), 1234));
+
+    help();
+    string x = menu();
+    write(sock, boost::asio::buffer(x));
+    string x2;
+    getline(cin, x2);
+
+    while (1)
+    {
+        string msg;
+        cout << "it's your turn: ";
+        getline(cin, msg);
+        msg += "\n";
+        write(sock, boost::asio::buffer(msg));
+
+        boost::asio::streambuf buff;
+        read_until(sock, buff, "\n");
+        cout << buffer_cast <const char*> (buff.data());
+    }
+}
+
+string menu()
+{
+    cout << "1.playground number 1" << endl;
+    cout << "2.playground number 2" << endl;
+    cout << "3.playground number 3" << endl;
+    cout << "Enter a number!" << endl;
+    string x;
+    cin >> x;
+    x += "\n";
+    return x;
+}
+
+void help() {
+    string str = "\n==========================================\n";
+    str += "playground: 1\n";
+    str += "Andaze Zamin: 9 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
+    str += "\n==========================================\n";
+    str += "Name Zamin: 2\n";
+    str += "Andaze Zamin: 17 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |   |   |  |\n7--8---9--1O--11\n|  |   |   |  |\n| 12 -13- 14  |\n|      |      |\n|      |      |\n15----16 ----17\n";
+    str += "\n==========================================\n";
+    str += "Name Zamin: 3\n";
+    str += "Andaze Zamin: 21 khane\n";
+    str += "Tedad khanehaye posht sar ham baraye bord: 3 ta\n";
+    str += "Format Koli Zamin: \n";
+    str += " 1------2------3\n |      |      |\n |      |      |\n |  4---5---6  |\n |  |   |   |  |\n |  | 7-8-9 |  |\n |  | |   | |  |\n10-11-12 13-14-15\n |  | |   | |  |\n |  |16---17|  |\n |  |/     \\|  |\n | 18------19  |\n |/           \\|\n20-------------21\n";
+    str += "\n==========================================\n";
+    cout << str;
+}
