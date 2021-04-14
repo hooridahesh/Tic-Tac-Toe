@@ -61,10 +61,10 @@ void help() {
     str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
     str += "\n==========================================\n";
     str += "Playground's name: 2\n";
-    str += "The size of the ground : 17 Home\n";
+    str += "The size of the ground : 16 Home\n";
     str += "The condition of winning: 3 ta ?????????/\n";
     str += "Earth shape: \n";
-    str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |   |   |  |\n7--8---9--1O--11\n|  |   |   |  |\n| 12 -13- 14  |\n|      |      |\n|      |      |\n15----16 ----17\n";
+    str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |       |  |\n7--8       9--10\n|  |       |  |\n| 11 -12- 13  |\n|      |      |\n|      |      |\n14---- 15 ----16\n";
     str += "\n==========================================\n";
     str += "Playground's name: 3\n";
     str += "The size of the ground : 21 Home\n";

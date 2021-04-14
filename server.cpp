@@ -124,7 +124,7 @@ void TicTacToe::play() {
         if (x == 2)
             write(server_sock, boost::asio::buffer(playGround2(p1, p2)));
         if (x == 3)
-            write(server_sock2, boost::asio::buffer(playGround3(p1, p2)));
+            write(server_sock, boost::asio::buffer(playGround3(p1, p2)));
     }
 }
 
@@ -458,10 +458,10 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     }
     else {
         answer += " 4 ";
@@ -483,10 +483,10 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     }
     else {
         answer += " 5 ";
@@ -508,16 +508,16 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += " + ";
     }
     else {
         answer += " 6 ";
     }
     answer += " |\n";
-    answer += "|  |   |   |  |\n";
+    answer += "|  |       |  |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -567,7 +567,7 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
     else {
         answer += "8";
     }
-    answer += "---";
+    answer += "       ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -609,15 +609,16 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "-*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "-+";
+        answer += "+";
     }
     else {
-        answer += "1O";
+        answer += "10";
     }
-    answer += "--";
+    answer += "\n|  |       |  |\n";
+    answer += "| ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 11) {
@@ -634,16 +635,15 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += " +";
     }
     else {
         answer += "11";
     }
-    answer += "\n|  |   |   |  |\n";
-    answer += "| ";
+    answer += " -";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 12) {
@@ -668,7 +668,7 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
     else {
         answer += "12";
     }
-    answer += " -";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 13) {
@@ -685,15 +685,17 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += "  *";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += "  +";
     }
     else {
-        answer += "13";
+        answer += " 13";
     }
-    answer += "-";
+    answer += "  |";
+    answer += "\n|      |      |\n";
+    answer += "|      |      |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 14) {
@@ -710,17 +712,15 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "  *";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "  +";
+        answer += "+ ";
     }
     else {
-        answer += " 14";
+        answer += "14";
     }
-    answer += "  |";
-    answer += "\n|      |      |\n";
-    answer += "|      |      |\n";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 15) {
@@ -737,18 +737,18 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += " + ";
     }
     else {
-        answer += "15";
+        answer += " 15 ";
     }
     answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == 2) {
+        if (p1[i] == 16) {
             flag = 1;
             break;
         }
@@ -762,38 +762,13 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
         }
     }
     if (flag == 1) {
-        answer += " * ";
-    }
-    else if (flag == 2) {
-        answer += " + ";
-    }
-    else {
-        answer += "16 ";
-    }
-    answer += "----";
-    flag = 0;
-    for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == 17) {
-            flag = 1;
-            break;
-        }
-    }
-    if (flag == 0) {
-        for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == 17) {
-                flag = 2;
-                break;
-            }
-        }
-    }
-    if (flag == 1) {
         answer += " *";
     }
     else if (flag == 2) {
         answer += " +";
     }
     else {
-        answer += "17";
+        answer += "16";
     }
     answer += "\n\n==================================\n";
     return answer;
@@ -1457,128 +1432,8 @@ bool TicTacToe::checkWinningP1(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 7;
-        arr[1] = 8;
-        arr[2] = 9;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 8;
-        arr[1] = 9;
-        arr[2] = 10;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 9;
-        arr[1] = 10;
-        arr[2] = 11;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 12;
-        arr[1] = 13;
-        arr[2] = 14;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 15;
-        arr[1] = 16;
-        arr[2] = 17;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 1;
-        arr[1] = 7;
-        arr[2] = 15;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 4;
-        arr[1] = 8;
-        arr[2] = 12;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 2;
-        arr[1] = 5;
-        arr[2] = 9;
-        for (int i = 0; i < p1Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p1[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 5;
-        arr[1] = 9;
+        arr[0] = 11;
+        arr[1] = 12;
         arr[2] = 13;
         for (int i = 0; i < p1Size; i++) {
             for (int j = 0; j < 3; j++) {
@@ -1592,8 +1447,23 @@ bool TicTacToe::checkWinningP1(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 9;
-        arr[1] = 13;
+        arr[0] = 14;
+        arr[1] = 15;
+        arr[2] = 16;
+        for (int i = 0; i < p1Size; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (p1[i] == arr[j]) {
+                    flag++;
+                    break;
+                }
+            }
+        }
+        if (flag == 3) {
+            return true;
+        }
+        flag = 0;
+        arr[0] = 3;
+        arr[1] = 10;
         arr[2] = 16;
         for (int i = 0; i < p1Size; i++) {
             for (int j = 0; j < 3; j++) {
@@ -1608,8 +1478,8 @@ bool TicTacToe::checkWinningP1(int x) {
         }
         flag = 0;
         arr[0] = 6;
-        arr[1] = 10;
-        arr[2] = 14;
+        arr[1] = 9;
+        arr[2] = 13;
         for (int i = 0; i < p1Size; i++) {
             for (int j = 0; j < 3; j++) {
                 if (p1[i] == arr[j]) {
@@ -1622,9 +1492,24 @@ bool TicTacToe::checkWinningP1(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 3;
-        arr[1] = 11;
-        arr[2] = 17;
+        arr[0] = 4;
+        arr[1] = 8;
+        arr[2] = 11;
+        for (int i = 0; i < p1Size; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (p1[i] == arr[j]) {
+                    flag++;
+                    break;
+                }
+            }
+        }
+        if (flag == 3) {
+            return true;
+        }
+        flag = 0;
+        arr[0] = 1;
+        arr[1] = 7;
+        arr[2] = 14;
         for (int i = 0; i < p1Size; i++) {
             for (int j = 0; j < 3; j++) {
                 if (p1[i] == arr[j]) {
@@ -1866,7 +1751,7 @@ bool TicTacToe::checkEnding(int x) {
     if (x == 2)
     {
         int total = p1.size() + p2.size();
-        if (total == 17) {
+        if (total == 16) {
             return true;
         }
         return false;
@@ -2010,128 +1895,8 @@ bool TicTacToe::checkWinningP2(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 7;
-        arr[1] = 8;
-        arr[2] = 9;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 8;
-        arr[1] = 9;
-        arr[2] = 10;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 9;
-        arr[1] = 10;
-        arr[2] = 11;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 12;
-        arr[1] = 13;
-        arr[2] = 14;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 15;
-        arr[1] = 16;
-        arr[2] = 17;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 1;
-        arr[1] = 7;
-        arr[2] = 15;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 4;
-        arr[1] = 8;
-        arr[2] = 12;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 2;
-        arr[1] = 5;
-        arr[2] = 9;
-        for (int i = 0; i < p2Size; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (p2[i] == arr[j]) {
-                    flag++;
-                    break;
-                }
-            }
-        }
-        if (flag == 3) {
-            return true;
-        }
-        flag = 0;
-        arr[0] = 5;
-        arr[1] = 9;
+        arr[0] = 11;
+        arr[1] = 12;
         arr[2] = 13;
         for (int i = 0; i < p2Size; i++) {
             for (int j = 0; j < 3; j++) {
@@ -2145,8 +1910,23 @@ bool TicTacToe::checkWinningP2(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 9;
-        arr[1] = 13;
+        arr[0] = 14;
+        arr[1] = 15;
+        arr[2] = 16;
+        for (int i = 0; i < p2Size; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (p2[i] == arr[j]) {
+                    flag++;
+                    break;
+                }
+            }
+        }
+        if (flag == 3) {
+            return true;
+        }
+        flag = 0;
+        arr[0] = 3;
+        arr[1] = 10;
         arr[2] = 16;
         for (int i = 0; i < p2Size; i++) {
             for (int j = 0; j < 3; j++) {
@@ -2161,8 +1941,8 @@ bool TicTacToe::checkWinningP2(int x) {
         }
         flag = 0;
         arr[0] = 6;
-        arr[1] = 10;
-        arr[2] = 14;
+        arr[1] = 9;
+        arr[2] = 13;
         for (int i = 0; i < p2Size; i++) {
             for (int j = 0; j < 3; j++) {
                 if (p2[i] == arr[j]) {
@@ -2175,9 +1955,24 @@ bool TicTacToe::checkWinningP2(int x) {
             return true;
         }
         flag = 0;
-        arr[0] = 3;
-        arr[1] = 11;
-        arr[2] = 17;
+        arr[0] = 4;
+        arr[1] = 8;
+        arr[2] = 11;
+        for (int i = 0; i < p2Size; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (p2[i] == arr[j]) {
+                    flag++;
+                    break;
+                }
+            }
+        }
+        if (flag == 3) {
+            return true;
+        }
+        flag = 0;
+        arr[0] = 1;
+        arr[1] = 7;
+        arr[2] = 14;
         for (int i = 0; i < p2Size; i++) {
             for (int j = 0; j < 3; j++) {
                 if (p2[i] == arr[j]) {
@@ -2449,7 +2244,7 @@ void TicTacToe::setP1G2(int data, vector<int>& p1, vector<int>& p2) {
             }
         }
     }
-    if (data >= 1 && data <= 17 && flag == 0) {
+    if (data >= 1 && data <= 16 && flag == 0) {
         p1.push_back(data);
     }
 }
@@ -2518,7 +2313,7 @@ void TicTacToe::setP2G2(int data, vector<int>& p1, vector<int>& p2) {
             }
         }
     }
-    if (data >= 1 && data <= 17 && flag == 0) {
+    if (data >= 1 && data <= 16 && flag == 0) {
         p2.push_back(data);
     }
 }
