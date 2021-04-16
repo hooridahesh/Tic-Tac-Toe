@@ -1,134 +1,42 @@
+/*
+Bind socket to port 8888 on localhost
+*/
+#include<io.h>
+#include<stdio.h>
+#include<winsock2.h>
 #include<iostream>
-#include<boost/asio.hpp>
 #include<thread>
 #include<vector>
 #include<string>
+#include <sstream>
+
+#pragma comment(lib,"ws2_32.lib") //Winsock Library
 
 using namespace std;
-using namespace boost::asio;
-using namespace ip;
 
 class TicTacToe {
 private:
+    string answer;
     vector<int> p1;
     vector<int> p2;
-    string answer;
 public:
-    string playGround1(vector<int>& p1, vector<int>& p2);
-    string playGround2(vector<int>& p1, vector<int>& p2);
-    string playGround3(vector<int>& p1, vector<int>& p2);
-    void play();
-    bool checkWinningP1(int x);
-    bool checkWinningP2(int x);
-    bool checkEnding(int x);
-    void setP1G1(int data, vector<int>& p1, vector<int>& p2);
-    void setP1G2(int data, vector<int>& p1, vector<int>& p2);
-    void setP1G3(int data, vector<int>& p1, vector<int>& p2);
-    void setP2G1(int data, vector<int>& p1, vector<int>& p2);
-    void setP2G2(int data, vector<int>& p1, vector<int>& p2);
-    void setP2G3(int data, vector<int>& p1, vector<int>& p2);
+    static int shift;
+    static int x;
+    string playGround1();
+    string playGround2();
+    string playGround3();
+    bool checkWinningP1();
+    bool checkWinningP2();
+    bool checkEnding();
+    bool setP1G1(int p);
+    bool setP1G2(int p);
+    bool setP1G3(int p);
+    bool setP2G1(int p);
+    bool setP2G2(int p);
+    bool setP2G3(int p);
+
 };
-
-int main()
-{
-    TicTacToe game;
-    game.play();
-}
-
-void TicTacToe::play() {
-
-    io_service io, io2;
-    tcp::socket server_sock(io);
-    tcp::socket server_sock2(io2);
-    tcp::acceptor acc(io, tcp::endpoint(tcp::v4(), 1234));
-    tcp::acceptor acc2(io2, tcp::endpoint(tcp::v4(), 1234));
-    acc.accept(server_sock);
-    acc.accept(server_sock2);
-
-    boost::asio::streambuf buff;
-    read_until(server_sock, buff, "\n");
-    int x = atoi(buffer_cast<const char*>(buff.data()));
-
-    while (1)
-    {
-        int flag = 0;
-        boost::asio::streambuf buff;
-        if (x == 1)
-        {
-            read_until(server_sock, buff, "\n");
-            setP1G1(atoi(buffer_cast<const char*>(buff.data())), p1, p2);
-        }
-        if (x == 2)
-        {
-            read_until(server_sock, buff, "\n");
-            setP1G2(atoi(buffer_cast<const char*>(buff.data())), p1, p2);
-        }
-        if (x == 3)
-        {
-            read_until(server_sock, buff, "\n");
-            setP1G3(atoi(buffer_cast<const char*>(buff.data())), p1, p2);
-        }
-        if (checkWinningP1(x))
-        {
-            string s = "Player 1 won the match!\n";
-            write(server_sock, boost::asio::buffer(s));
-            write(server_sock2, boost::asio::buffer(s));
-        }
-        else if (checkEnding(x))
-        {
-            string s = "the match had no winners!\n";
-            write(server_sock, boost::asio::buffer(s));
-            write(server_sock2, boost::asio::buffer(s));
-
-        }
-        cout << "player1:" << buffer_cast<const char*>(buff.data());
-        if (x == 1)
-            write(server_sock2, boost::asio::buffer(playGround1(p1, p2)));
-        if (x == 2)
-            write(server_sock2, boost::asio::buffer(playGround2(p1, p2)));
-        if (x == 3)
-            write(server_sock2, boost::asio::buffer(playGround3(p1, p2)));
-
-        boost::asio::streambuf buff2;
-        if (x == 1)
-        {
-            read_until(server_sock2, buff2, "\n");
-            setP2G1(atoi(buffer_cast<const char*>(buff2.data())), p1, p2);
-        }
-        if (x == 2)
-        {
-            read_until(server_sock2, buff2, "\n");
-            setP2G2(atoi(buffer_cast<const char*>(buff2.data())), p1, p2);
-        }
-        if (x == 3)
-        {
-            read_until(server_sock2, buff2, "\n");
-            setP2G3(atoi(buffer_cast<const char*>(buff2.data())), p1, p2);
-        }
-        if (checkWinningP2(x))
-        {
-            string s = "Player 1 won the match!\n";
-            write(server_sock, boost::asio::buffer(s));
-            write(server_sock2, boost::asio::buffer(s));
-        }
-        else if (checkEnding(x))
-        {
-            string s = "the match had no winners!\n";
-            write(server_sock, boost::asio::buffer(s));
-            write(server_sock2, boost::asio::buffer(s));
-        }
-        cout << "player2: " << buffer_cast<const char*>(buff2.data());
-
-        if (x == 1)
-            write(server_sock, boost::asio::buffer(playGround1(p1, p2)));
-        if (x == 2)
-            write(server_sock, boost::asio::buffer(playGround2(p1, p2)));
-        if (x == 3)
-            write(server_sock, boost::asio::buffer(playGround3(p1, p2)));
-    }
-}
-
-string TicTacToe::playGround1(vector<int>& p1, vector<int>& p2) {
+string TicTacToe::playGround1() {
     int p1Size = p1.size();
     int p2Size = p2.size();
     int flag = 0;
@@ -362,7 +270,7 @@ string TicTacToe::playGround1(vector<int>& p1, vector<int>& p2) {
     return answer;
 }
 
-string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
+string TicTacToe::playGround2() {
     int p1Size = p1.size();
     int p2Size = p2.size();
     int flag = 0;
@@ -774,7 +682,7 @@ string TicTacToe::playGround2(vector<int>& p1, vector<int>& p2) {
     return answer;
 }
 
-string TicTacToe::playGround3(vector<int>& p1, vector<int>& p2) {
+string TicTacToe::playGround3() {
     int p1Size = p1.size();
     int p2Size = p2.size();
     int flag = 0;
@@ -1305,7 +1213,7 @@ string TicTacToe::playGround3(vector<int>& p1, vector<int>& p2) {
     answer += "\n\n========================================\n";
     return answer;
 }
-bool TicTacToe::checkWinningP1(int x) {
+bool TicTacToe::checkWinningP1() {
     if (x == 1)
     {
         int flag = 0;
@@ -1739,7 +1647,7 @@ bool TicTacToe::checkWinningP1(int x) {
         return false;
     }
 }
-bool TicTacToe::checkEnding(int x) {
+bool TicTacToe::checkEnding() {
     if (x == 1)
     {
         int total = p1.size() + p2.size();
@@ -1765,9 +1673,7 @@ bool TicTacToe::checkEnding(int x) {
         return false;
     }
 }
-
-
-bool TicTacToe::checkWinningP2(int x) {
+bool TicTacToe::checkWinningP2() {
     if (x == 1)
     {
         int flag = 0;
@@ -2203,140 +2109,640 @@ bool TicTacToe::checkWinningP2(int x) {
     }
 }
 
-void TicTacToe::setP1G1(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP1G1(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 9 && flag == 0) {
-        p1.push_back(data);
+    if (p >= 1 && p <= 9 && flag == 0) {
+        p1.push_back(p);
+        return true;
+    }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void TicTacToe::setP1G2(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP2G1(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 16 && flag == 0) {
-        p1.push_back(data);
+    if (p >= 1 && p <= 9 && flag == 0) {
+        p2.push_back(p);
+        return true;
+    }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void TicTacToe::setP1G3(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP1G2(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 21 && flag == 0) {
-        p1.push_back(data);
+    if (p >= 1 && p <= 16 && flag == 0) {
+        p1.push_back(p);
+        return true;
+    }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void TicTacToe::setP2G1(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP2G2(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 9 && flag == 0) {
-        p2.push_back(data);
+    if (p >= 1 && p <= 16 && flag == 0) {
+        p2.push_back(p);
+        return true;
+    }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void TicTacToe::setP2G2(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP1G3(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 16 && flag == 0) {
-        p2.push_back(data);
+    if (p >= 1 && p <= 21 && flag == 0) {
+        p1.push_back(p);
+        return true;
+    }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
     }
 }
 
-void TicTacToe::setP2G3(int data, vector<int>& p1, vector<int>& p2) {
+bool TicTacToe::setP2G3(int p) {
     int flag = 0;
     int p1Size = p1.size();
     int p2Size = p2.size();
     for (int i = 0; i < p1Size; i++) {
-        if (p1[i] == data) {
+        if (p1[i] == p) {
             flag = 1;
             break;
         }
     }
     if (flag == 0) {
         for (int i = 0; i < p2Size; i++) {
-            if (p2[i] == data) {
+            if (p2[i] == p) {
                 flag = 1;
                 break;
             }
         }
     }
-    if (data >= 1 && data <= 21 && flag == 0) {
-        p2.push_back(data);
+    if (p >= 1 && p <= 21 && flag == 0) {
+        p2.push_back(p);
+        return true;
     }
+    else {
+        //cout << "Khane vared shode mojod nist!!" << endl;
+        return false;
+    }
+}
+
+
+class Client
+{
+private:
+    SOCKET sock;
+    string name;
+public:
+    Client(SOCKET _sock, string _name) { setSocket(_sock); setName(_name); }
+    void setSocket(SOCKET _sock) { sock = _sock; }
+    void setName(string _name) { name = _name; }
+    SOCKET getSocket() { return sock; }
+    string getName() { return name; }
+};
+
+vector<Client> clients;
+vector<thread> threads;
+int member;
+void receiveFrom(Client client) {
+
+
+    int recv_size;
+    while (1) {
+        char msg[2000];
+        if ((recv_size = recv(client.getSocket(), msg, 2000, 0)) == SOCKET_ERROR)
+        {
+            puts("recv failed");
+        }
+
+        msg[recv_size] = '\0';
+        string sendMsg = client.getName() + ": " + string(msg);
+        for (int i = 0; i < clients.size(); ++i) {
+            if (clients[i].getName() != client.getName())
+                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+        }
+    }
+
+}
+
+bool start;
+int strToNum(string str) {
+    stringstream converted(str);
+    int num = 0;
+    converted >> num;
+    return num;
+}
+
+void main2(Client client) {
+    //if (!start==false) {
+    TicTacToe game;
+    //start = true;
+//}
+    int recv_size;
+    while (1) {
+
+        char msg[2000];
+        if ((recv_size = recv(client.getSocket(), msg, 2000, 0)) == SOCKET_ERROR)
+        {
+            puts("recv failed");
+        }
+        msg[recv_size] = '\0';
+        if (start && game.shift == 1 && game.x == 1 && clients[0].getName() == client.getName()) {
+            if (game.setP2G1(member)) {
+                start = false;
+            }
+        }
+        else if (start && game.shift == 2 && game.x == 1 && clients[1].getName() == client.getName()) {
+            if (game.setP1G1(member)) {
+                start = false;
+            }
+        }
+        else if (start && game.shift == 1 && game.x == 2 && clients[0].getName() == client.getName()) {
+            if (game.setP2G2(member)) {
+                start = false;
+            }
+        }
+        else if (start && game.shift == 2 && game.x == 2 && clients[1].getName() == client.getName()) {
+            if (game.setP1G2(member)) {
+                start = false;
+            }
+        }
+        else if (start && game.shift == 1 && game.x == 3 && clients[0].getName() == client.getName()) {
+            if (game.setP2G3(member)) {
+                start = false;
+            }
+        }
+        else if (start && game.shift == 2 && game.x == 3 && clients[1].getName() == client.getName()) {
+            if (game.setP1G3(member)) {
+                start = false;
+            }
+        }
+        string sendMsg = client.getName() + " : ";
+        string order = string(msg);
+        if (order == "-h" || order == "--help") {
+            string str = "\n==========================================\n";
+            str += "Playground's name: 1\n";
+            str += "The size of the ground : 9 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
+            str += "\n==========================================\n";
+            str += "Playground's name: 2\n";
+            str += "The size of the ground : 16 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |       |  |\n7--8       9--10\n|  |       |  |\n| 11 -12- 13  |\n|      |      |\n|      |      |\n14---- 15 ----16\n";
+            str += "\n==========================================\n";
+            str += "Playground's name: 3\n";
+            str += "The size of the ground : 21 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += " 1------2------3\n |      |      |\n |      |      |\n |  4---5---6  |\n |  |   |   |  |\n |  | 7-8-9 |  |\n |  | |   | |  |\n10-11-12 13-14-15\n |  | |   | |  |\n |  |16---17|  |\n |  |/     \\|  |\n | 18------19  |\n |/           \\|\n20-------------21\n";
+            str += "\n==========================================\n";
+            for (int i = 0; i < clients.size(); ++i) {
+                if (clients[i].getName() == client.getName())
+                    send(clients[i].getSocket(), str.c_str(), str.size(), 0);
+            }
+        }
+        else if (order == "--exit") {
+
+        }
+        else if (game.x == 0) {
+            if (order == "1") {
+                sendMsg = game.playGround1();
+                game.x = 1;
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (/*clients[i].getName() != client.getName()*/true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+            }
+            else if (order == "2") {
+                sendMsg = game.playGround2();
+                game.x = 2;
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (/*clients[i].getName() != client.getName()*/true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+            }
+            else if (order == "3") {
+                sendMsg = game.playGround3();
+                game.x = 3;
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (/*clients[i].getName() != client.getName()*/true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+            }
+        }
+        else if (game.x == 1) {
+            int orderNum = strToNum(order);
+            if (game.shift == 1) {
+                if (clients[0].getName() == client.getName()) {
+                    bool flag = game.setP1G1(orderNum);
+                    if (flag) {
+                        game.shift = 2;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround1();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP1();
+                if (win) {
+                    sendMsg ="\n=============\nWinner : " +client.getName()+"\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+                
+            }
+            else if (game.shift == 2) {
+                if (clients[1].getName() == client.getName()) {
+                    bool flag = game.setP2G1(orderNum);
+                    if (flag) {
+                        game.shift = 1;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround1();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP2();
+                if (win) {
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+            }
+            bool end = game.checkEnding();
+            if (end) {
+                sendMsg = "\n=============\nGame Over!!!\n=============\n";
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+                game.x = -1;
+            }
+        }
+        else if (game.x == 2) {
+            int orderNum = strToNum(order);
+            if (game.shift == 1) {
+                if (clients[0].getName() == client.getName()) {
+                    bool flag = game.setP1G2(orderNum);
+                    if (flag) {
+                        game.shift = 2;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround2();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP1();
+                if (win) {
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+
+            }
+            else if (game.shift == 2) {
+                if (clients[1].getName() == client.getName()) {
+                    bool flag = game.setP2G2(orderNum);
+                    if (flag) {
+                        game.shift = 1;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround2();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP2();
+                if (win) {
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+            }
+            bool end = game.checkEnding();
+            if (end) {
+                sendMsg = "\n=============\nGame Over!!!\n=============\n";
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+                game.x = -1;
+            }
+        }
+        else if (game.x == 3) {
+            int orderNum = strToNum(order);
+            if (game.shift == 1) {
+                if (clients[0].getName() == client.getName()) {
+                    bool flag = game.setP1G3(orderNum);
+                    if (flag) {
+                        game.shift = 2;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround3();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP1();
+                if (win) {
+                    sendMsg ="\n=============\nWinner : " +client.getName()+"\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+                
+            }
+            else if (game.shift == 2) {
+                if (clients[1].getName() == client.getName()) {
+                    bool flag = game.setP2G3(orderNum);
+                    if (flag) {
+                        game.shift = 1;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround3();
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (/*clients[i].getName() != client.getName()*/true)
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                    }
+                }
+                bool win = game.checkWinningP2();
+                if (win) {
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
+                    for (int i = 0; i < clients.size(); ++i) {
+                        if (true)
+                            send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                    }
+                    game.x = -1;
+                }
+            }
+            bool end = game.checkEnding();
+            if (end) {
+                sendMsg = "\n=============\nGame Over!!!\n=============\n";
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (true)
+                        send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                }
+                game.x = -1;
+            }
+        }
+
+        /*++++++++++++++++++++*/
+        
+
+
+
+
+
+
+    }
+}
+//static int shift = 1;
+//static int x = 0;
+int TicTacToe::x = 0;
+int TicTacToe::shift = 1;
+int main(int argc, char* argv[])
+{
+    WSADATA wsa;
+    SOCKET s, new_socket;
+    int c;
+    const char* message;
+    start = false;
+    printf("\nInitialising Winsock...");
+    if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+    {
+        printf("Failed. Error Code : %d", WSAGetLastError());
+        return 1;
+    }
+
+    printf("Initialised.\n");
+
+    //Create a socket
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
+    {
+        printf("Could not create socket : %d", WSAGetLastError());
+    }
+
+    printf("Socket created.\n");
+
+    //Prepare the sockaddr_in structure
+    struct sockaddr_in server;
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+    server.sin_port = htons(8080);
+
+    //Bind
+    if (bind(s, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR)
+    {
+        printf("Bind failed with error code : %d", WSAGetLastError());
+    }
+
+    puts("Bind done");
+
+    //Listen to incoming connections
+    listen(s, 3);
+
+    //Accept and incoming connection
+    puts("Waiting for incoming connections...");
+
+    struct sockaddr_in client;
+    c = sizeof(struct sockaddr_in);
+    while (1) {
+        new_socket = accept(s, (struct sockaddr*)&client, &c);
+        if (new_socket == INVALID_SOCKET)
+        {
+            printf("accept failed with error code : %d", WSAGetLastError());
+        }
+        puts("Connection accepted");
+
+        char msg[2000];
+        int recv_size;
+        if ((recv_size = recv(new_socket, msg, 2000, 0)) == SOCKET_ERROR)
+        {
+            puts("recv failed");
+        }
+        msg[recv_size] = '\0';
+
+        cout << msg << " is connected!!" << endl;
+
+        Client client(new_socket, string(msg));
+        clients.push_back(client);
+        threads.push_back(thread(main2, client));
+    }
+
+
+    getchar();
+
+    closesocket(s);
+    WSACleanup();
+
+    return 0;
 }

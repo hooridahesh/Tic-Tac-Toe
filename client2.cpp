@@ -1,32 +1,111 @@
-#include<iostream>
-#include<boost/asio.hpp>
-#include<thread>
-#include<vector>
+/*
+Initialise Winsock
+*/
+
+#include<stdio.h>
+#include<winsock2.h>
+#include <iostream>
 #include<string>
+#include<thread>
 
 using namespace std;
-using namespace boost::asio;
-using namespace ip;
 
-string help();
+#pragma comment(lib,"ws2_32.lib") //Winsock Library
+#pragma warning(disable:4996)
 
-int main()
+
+
+void sendTo(SOCKET s)
 {
-    io_service io2;
-    tcp::socket sock(io2);
-    sock.connect(tcp::endpoint(address::from_string("127.0.0.1"), 1234));
+    string msg;
+
     while (1)
     {
-        boost::asio::streambuf buff2;
-        read_until(sock, buff2, "\n");
-        cout << buffer_cast <const char*> (buff2.data());
-
-        string msg2;
-        cout << "it's your turn: ";
-        getline(cin, msg2);
-        msg2 += "\n";
-        write(sock, boost::asio::buffer(msg2));
+        getline(cin, msg);
+        if (send(s, msg.c_str(), msg.length(), 0) < 0)
+        {
+            puts("Send failed");
+        }
     }
 }
 
+void receiveFrom(SOCKET s)
+{
+    while (1)
+    {
+        int recv_size;
+        char server_reply[2000];
+        if ((recv_size = recv(s, server_reply, 2000, 0)) == SOCKET_ERROR)
+        {
+            puts("recv failed");
+        }
+        server_reply[recv_size] = '\0';
+        cout << server_reply << endl;
+    }
+}
 
+int main(int argc, char* argv[])
+{
+    WSADATA wsa;
+    SOCKET s;
+    struct sockaddr_in server;
+
+    cout << "\nInitialising Winsock...";
+    if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+    {
+        cout << "Failed. Error Code " << WSAGetLastError();
+        return 1;
+    }
+
+    cout << "Initialised.";
+
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
+    {
+        cout << "Could not create socket" << WSAGetLastError();
+    }
+
+    cout << "Socket created." << endl;
+
+    server.sin_addr.s_addr = inet_addr("127.0.0.1");
+    server.sin_family = AF_INET;
+    server.sin_port = htons(8080);
+
+    //Connect to remote server
+    if (connect(s, (struct sockaddr*)&server, sizeof(server)) < 0)
+    {
+        puts("connect error");
+        return 1;
+    }
+
+    puts("Connected");
+    cout << endl << "******************************************" << endl;
+    cout << "1. Playground number 1" << endl;
+    cout << "2. Playground number 2" << endl;
+    cout << "3. Playground number 3" << endl;
+    cout << "4. Help" << endl;
+    cout << "5. Exit" << endl;
+    //Send name
+    cout << "Enter your name:" << endl;
+    string name;
+    cin >> name;
+    cout << "Enter a number: " << endl;
+
+    if (send(s, name.c_str(), name.length(), 0) < 0)
+    {
+        puts("Send failed");
+        return 1;
+    }
+
+    thread sThread(sendTo, s);
+    thread rThread(receiveFrom, s);
+
+    sThread.join();
+    rThread.join();
+
+
+
+    closesocket(s);
+    WSACleanup();
+
+    return 0;
+}
