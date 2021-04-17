@@ -45,6 +45,10 @@ void receiveFrom(SOCKET s)
         }
         server_reply[recv_size] = '\0';
         str=string(server_reply);
+        if (string(server_reply) == "--exit") {
+            closesocket(s);
+            WSACleanup();
+        }
         cout << server_reply << endl;
     }
 }
@@ -87,8 +91,8 @@ int main(int argc, char* argv[])
     cout << "1. Playground number 1" << endl;
     cout << "2. Playground number 2" << endl;
     cout << "3. Playground number 3" << endl;
-    cout << "4. Help" << endl;
-    cout << "5. Exit" << endl;
+    cout << "4. Help => Enter --help or -h" << endl;
+    cout << "5. Exit => Enter --exit" << endl;
     //Send name
     cout << "Enter your name:" << endl;
     string name;
