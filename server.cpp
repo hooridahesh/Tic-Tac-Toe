@@ -2756,12 +2756,11 @@ int main(int argc, char* argv[])
     void timer() {
         for (int i = 20; i != 0; i--) {
             string str = to_string(i);
-            string
             str += "-";
-            sleep_until(system_clock::now() + seconds(1));
             if (game.shift == 1)
                 send(clients[1].getSocket(), str.c_str(), str.size(), 0);
             else if (game.shift == 2)
                 send(clients[2].getSocket(), str.c_str(), str.size(), 0);
+            sleep_until(system_clock::now() + seconds(1));
         }
     }
