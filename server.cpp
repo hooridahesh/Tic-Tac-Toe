@@ -2758,9 +2758,9 @@ int main(int argc, char* argv[])
             string str = to_string(i);
             str += "-";
             if (game.shift == 1)
-                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
+                send(clients[0].getSocket(), str.c_str(), str.size(), 0);
             else if (game.shift == 2)
-                send(clients[2].getSocket(), str.c_str(), str.size(), 0);
+                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
             sleep_until(system_clock::now() + seconds(1));
         }
     }
