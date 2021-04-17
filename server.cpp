@@ -10,10 +10,15 @@ Bind socket to port 8888 on localhost
 #include<string>
 #include <sstream>
 #include<cstdio>
+#include <chrono>
 
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
+
+void timer();
 
 class TicTacToe {
 private:
@@ -2427,6 +2432,7 @@ void main2(Client client) {
         else if (game.x == 1) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
+                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G1(orderNum);
                     if (flag) {
@@ -2459,6 +2465,7 @@ void main2(Client client) {
                 
             }
             else if (game.shift == 2) {
+                timer();
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G1(orderNum);
                     if (flag) {
@@ -2502,6 +2509,7 @@ void main2(Client client) {
         else if (game.x == 2) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
+                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G2(orderNum);
                     if (flag) {
@@ -2534,6 +2542,7 @@ void main2(Client client) {
 
             }
             else if (game.shift == 2) {
+                timer();
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G2(orderNum);
                     if (flag) {
@@ -2577,6 +2586,7 @@ void main2(Client client) {
         else if (game.x == 3) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
+                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G3(orderNum);
                     if (flag) {
@@ -2609,6 +2619,8 @@ void main2(Client client) {
                 
             }
             else if (game.shift == 2) {
+                timer();
+                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G3(orderNum);
                     if (flag) {
@@ -2740,3 +2752,16 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
+    void timer() {
+        for (int i = 20; i != 0; i--) {
+            string str = to_string(i);
+            string
+            str += "-";
+            sleep_until(system_clock::now() + seconds(1));
+            if (game.shif == 1)
+                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
+            else if (game.shif == 2)
+                send(clients[2].getSocket(), str.c_str(), str.size(), 0);
+        }
+    }

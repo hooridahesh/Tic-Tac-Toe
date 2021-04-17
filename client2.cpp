@@ -7,17 +7,12 @@ Initialise Winsock
 #include <iostream>
 #include<string>
 #include<thread>
-#include <chrono>
 
 using namespace std;
-using namespace std::this_thread;
-using namespace std::chrono;
 
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 #pragma warning(disable:4996)
 
-void timer();
-string str;
 
 void sendTo(SOCKET s)
 {
@@ -107,7 +102,6 @@ int main(int argc, char* argv[])
 
     thread sThread(sendTo, s);
     thread rThread(receiveFrom, s);
-    thread Thread(timer);
 
     sThread.join();
     rThread.join();
@@ -118,16 +112,5 @@ int main(int argc, char* argv[])
     WSACleanup();
 
     return 0;
-}
-
-void timer()
-{
-    for (int i = 20; i != 0; i--)
-    {
-        cout << str << endl;
-        cout << i;
-        sleep_until(system_clock::now() + seconds(1));
-        system("cls");
-    }
 }
 
