@@ -39,7 +39,6 @@ void receiveFrom(SOCKET s)
             puts("recv failed");
         }
         server_reply[recv_size] = '\0';
-        str=string(server_reply);
         if (string(server_reply) == "--exit") {
             closesocket(s);
             WSACleanup();

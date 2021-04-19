@@ -61,15 +61,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer = "\u001b[34;1m*";
+        answer = "*";
     }
     else if (flag == 2) {
-        answer = "\u001b[35;1m+";
+        answer = "+";
     }
     else {
-        answer = "\u001b[33;1m1";
+        answer = "1";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -86,15 +86,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m2";
+        answer += "2";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -111,16 +111,16 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m3";
+        answer += "3";
     }
     answer += "\n";
-    answer += "\u001b[30;1m|   |   |\n";
+    answer += "|   |   |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -137,15 +137,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m4";
+        answer += "4";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -162,15 +162,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m5";
+        answer += "5";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -187,16 +187,16 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m6";
+        answer += "6";
     }
     answer += "\n";
-    answer += "\u001b[30;1m|   |   |\n";
+    answer += "|   |   |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -213,15 +213,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m7";
+        answer += "7";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -238,15 +238,15 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m8";
+        answer += "8";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -263,13 +263,13 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m9";
+        answer += "9";
     }
     flag = 0;
     answer += "\n\n==================================\n";
@@ -295,15 +295,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer = "\u001b[34;1m* ";
+        answer = "* ";
     }
     else if (flag == 2) {
-        answer = "\u001b[35;1m+ ";
+        answer = "+ ";
     }
     else {
-        answer = "\u001b[33;1m1 ";
+        answer = "1 ";
     }
-    answer += "\u001b[30;1m----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -320,15 +320,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+ ";
+        answer += " + ";
     }
     else {
-        answer += " \u001b[33;1m2 ";
+        answer += " 2 ";
     }
-    answer += "\u001b[30;1m----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -345,17 +345,17 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += " \u001b[33;1m3";
+        answer += " 3";
     }
-    answer += "\n\u001b[30;1m|      |      |\n";
-    answer += "\u001b[30;1m|      |      |\n";
-    answer += "\u001b[30;1m| ";
+    answer += "\n|      |      |\n";
+    answer += "|      |      |\n";
+    answer += "| ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -372,15 +372,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+ ";
+        answer += " + ";
     }
     else {
-        answer += " \u001b[33;1m4 ";
+        answer += " 4 ";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -397,15 +397,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+ ";
+        answer += " + ";
     }
     else {
-        answer += " \u001b[33;1m5 ";
+        answer += " 5 ";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -422,16 +422,16 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+ ";
+        answer += " + ";
     }
     else {
-        answer += " \u001b[33;1m6 ";
+        answer += " 6 ";
     }
-    answer += " \u001b[30;1m|\n";
-    answer += "\u001b[30;1m|  |       |  |\n";
+    answer += " |\n";
+    answer += "|  |       |  |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -448,15 +448,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m7";
+        answer += "7";
     }
-    answer += "\u001b[30;1m--";
+    answer += "--";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -473,13 +473,13 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m8";
+        answer += "8";
     }
     answer += "       ";
     flag = 0;
@@ -498,15 +498,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m9";
+        answer += "9";
     }
-    answer += "\u001b[30;1m--";
+    answer += "--";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 10) {
@@ -523,16 +523,16 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m10";
+        answer += "10";
     }
-    answer += "\n\u001b[30;1m|  |       |  |\n";
-    answer += "\u001b[30;1m| ";
+    answer += "\n|  |       |  |\n";
+    answer += "| ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 11) {
@@ -549,15 +549,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m11";
+        answer += "11";
     }
-    answer += " \u001b[30;1m-";
+    answer += " -";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 12) {
@@ -574,15 +574,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m12";
+        answer += "12";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 13) {
@@ -599,17 +599,17 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "  \u001b[34;1m*";
+        answer += "  *";
     }
     else if (flag == 2) {
-        answer += "  \u001b[35;1m+";
+        answer += "  +";
     }
     else {
-        answer += " \u001b[33;1m13";
+        answer += " 13";
     }
-    answer += "  \u001b[30;1m|";
-    answer += "\n\u001b[30;1m|      |      |\n";
-    answer += "\u001b[30;1m|      |      |\n";
+    answer += "  |";
+    answer += "\n|      |      |\n";
+    answer += "|      |      |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 14) {
@@ -626,15 +626,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m* ";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+ ";
+        answer += "+ ";
     }
     else {
-        answer += "\u001b[33;1m14";
+        answer += "14";
     }
-    answer += "\u001b[30;1m----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 15) {
@@ -651,15 +651,15 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m* ";
+        answer += " * ";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+ ";
+        answer += " + ";
     }
     else {
-        answer += " \u001b[33;1m15 ";
+        answer += " 15 ";
     }
-    answer += "\u001b[30;1m----";
+    answer += "----";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 16) {
@@ -676,13 +676,13 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m16";
+        answer += "16";
     }
     answer += "\n\n==================================\n";
     return answer;
@@ -707,15 +707,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer = " \u001b[34;1m*";
+        answer = " *";
     }
     else if (flag == 2) {
-        answer = " \u001b[35;1m+";
+        answer = " +";
     }
     else {
-        answer = " \u001b[33;1m1";
+        answer = " 1";
     }
-    answer += "\u001b[30;1m------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 2) {
@@ -732,15 +732,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m2";
+        answer += "2";
     }
-    answer += "\u001b[30;1m------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 3) {
@@ -757,15 +757,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m3";
+        answer += "3";
     }
-    answer += "\n \u001b[30;1m|      |      |\n |      |      |\n |  ";
+    answer += "\n |      |      |\n |      |      |\n |  ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 4) {
@@ -782,15 +782,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m4";
+        answer += "4";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 5) {
@@ -807,15 +807,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m5";
+        answer += "5";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 6) {
@@ -832,15 +832,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m6";
+        answer += "6";
     }
-    answer += "  \u001b[30;1m|\n |  |   |   |  |\n |  | ";
+    answer += "  |\n |  |   |   |  |\n |  | ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 7) {
@@ -857,15 +857,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m7";
+        answer += "7";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 8) {
@@ -882,15 +882,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m8";
+        answer += "8";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 9) {
@@ -907,15 +907,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m9";
+        answer += "9";
     }
-    answer += " \u001b[30;1m|  |\n |  | |   | |  |\n";
+    answer += " |  |\n |  | |   | |  |\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 10) {
@@ -932,15 +932,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m10";
+        answer += "10";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 11) {
@@ -957,15 +957,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m11";
+        answer += "11";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 12) {
@@ -982,13 +982,13 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m* ";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+ ";
+        answer += "+ ";
     }
     else {
-        answer += "\u001b[33;1m12";
+        answer += "12";
     }
     answer += " ";
     flag = 0;
@@ -1007,15 +1007,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m* ";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+ ";
+        answer += "+ ";
     }
     else {
-        answer += "\u001b[33;1m13";
+        answer += "13";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 14) {
@@ -1032,15 +1032,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m* ";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+ ";
+        answer += "+ ";
     }
     else {
-        answer += "\u001b[33;1m14";
+        answer += "14";
     }
-    answer += "\u001b[30;1m-";
+    answer += "-";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 15) {
@@ -1057,15 +1057,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m15";
+        answer += "15";
     }
-    answer += "\n \u001b[30;1m|  | |   | |  |\n |  |";
+    answer += "\n |  | |   | |  |\n |  |";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 16) {
@@ -1082,15 +1082,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m16";
+        answer += "16";
     }
-    answer += "\u001b[30;1m---";
+    answer += "---";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 17) {
@@ -1107,15 +1107,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m* ";
+        answer += "* ";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+ ";
+        answer += "+ ";
     }
     else {
-        answer += "\u001b[33;1m17";
+        answer += "17";
     }
-    answer += "\u001b[30;1m|  |\n |  |/     \\|  |\n | ";
+    answer += "|  |\n |  |/     \\|  |\n | ";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 18) {
@@ -1132,15 +1132,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m18";
+        answer += "18";
     }
-    answer += "\u001b[30;1m------";
+    answer += "------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 19) {
@@ -1157,15 +1157,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m-*";
+        answer += "-*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m-+";
+        answer += "-+";
     }
     else {
-        answer += "\u001b[33;1m19";
+        answer += "19";
     }
-    answer += "  \u001b[30;1m|\n |/           \\|\n";
+    answer += "  |\n |/           \\|\n";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 20) {
@@ -1182,15 +1182,15 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " \u001b[34;1m*";
+        answer += " *";
     }
     else if (flag == 2) {
-        answer += " \u001b[35;1m+";
+        answer += " +";
     }
     else {
-        answer += "\u001b[33;1m20";
+        answer += "20";
     }
-    answer += "\u001b[30;1m-------------";
+    answer += "-------------";
     flag = 0;
     for (int i = 0; i < p1Size; i++) {
         if (p1[i] == 21) {
@@ -1207,13 +1207,13 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "\u001b[34;1m*";
+        answer += "*";
     }
     else if (flag == 2) {
-        answer += "\u001b[35;1m+";
+        answer += "+";
     }
     else {
-        answer += "\u001b[33;1m21";
+        answer += "21";
     }
     flag = 0;
     answer += "\n\n========================================\n";
@@ -2412,7 +2412,8 @@ void main2(Client client) {
                 game.x = 1;
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
                 sendMsg += "\nIt's your shift :)"; 
-                send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+                send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                timer();
             }
             else if (order == "2") {
                 sendMsg = game.playGround2();
@@ -2420,13 +2421,15 @@ void main2(Client client) {
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
                 sendMsg += "\nIt's your shift :)";  
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                timer();
             }
             else if (order == "3") {
                 sendMsg = game.playGround3();
                 game.x = 3;
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
                 sendMsg += "\nIt's your shift :)"; 
-                send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+                send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                timer();
             }
         }
         else if (game.x == 1) {
@@ -2620,7 +2623,6 @@ void main2(Client client) {
             }
             else if (game.shift == 2) {
                 timer();
-                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G3(orderNum);
                     if (flag) {
@@ -2761,6 +2763,7 @@ int main(int argc, char* argv[])
                 send(clients[0].getSocket(), str.c_str(), str.size(), 0);
             else if (game.shift == 2)
                 send(clients[1].getSocket(), str.c_str(), str.size(), 0);
-            sleep_until(system_clock::now() + seconds(1));
+            sleep_until(system_clock::now() + seconds(5));
+            i=i-5;
         }
     }
