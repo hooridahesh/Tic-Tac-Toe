@@ -2432,31 +2432,32 @@ void main2(Client client) {
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 timer();
             }
-            else if (game.x == 1) {
-                int orderNum = strToNum(order);
-                if (game.shift == 1) {
-                    timer();
-                    if (clients[0].getName() == client.getName()) {
-                        bool flag = game.setP1G1(orderNum);
-                        if (flag) {
-                            game.shift = 2;
-                            start = true;
-                            member = orderNum;
-                            sendMsg = game.playGround1();
-                            send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-                            sendMsg += "\nIt's your shift :)";
-                            send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+        }
+        else if (game.x == 1) {
+            int orderNum = strToNum(order);
+            if (game.shift == 1) {
+                timer();
+                if (clients[0].getName() == client.getName()) {
+                    bool flag = game.setP1G1(orderNum);
+                    if (flag) {
+                        game.shift = 2;
+                        start = true;
+                        member = orderNum;
+                        sendMsg = game.playGround1();
+                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
-                        }
-                        else {
-                            sendMsg = "Home isn't exist :( Please enter a home =)";
-                            for (int i = 0; i < clients.size(); ++i) {
-                                if (clients[i].getName() == client.getName())
-                                    send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-                            }
+                    }
+                    else {
+                        sendMsg = "Home isn't exist :( Please enter a home =)";
+                        for (int i = 0; i < clients.size(); ++i) {
+                            if (clients[i].getName() == client.getName())
+                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                         }
                     }
                 }
+
                 bool win = game.checkWinningP1();
                 if (win) {
                     sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
@@ -2466,7 +2467,6 @@ void main2(Client client) {
                     }
                     game.x = -1;
                 }
-
             }
             else if (game.shift == 2) {
                 timer();
@@ -2664,7 +2664,6 @@ void main2(Client client) {
                 game.x = -1;
             }
         }
-
         else if (game.x == -1) {
             string str = "--exit";
             for (int i = 0; i < clients.size(); ++i) {
