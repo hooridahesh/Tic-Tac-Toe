@@ -2406,66 +2406,67 @@ void main2(Client client) {
                 if (clients[i].getName() == client.getName())
                     send(clients[i].getSocket(), str.c_str(), str.size(), 0);
             }
+        }
         else if (game.x == 0) {
             if (order == "1") {
                 sendMsg = game.playGround1();
                 game.x = 1;
-                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                sendMsg += "\nIt's your shift :)"; 
+                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 timer();
             }
             else if (order == "2") {
                 sendMsg = game.playGround2();
                 game.x = 2;
-                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                sendMsg += "\nIt's your shift :)";  
+                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 timer();
             }
             else if (order == "3") {
                 sendMsg = game.playGround3();
                 game.x = 3;
-                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                sendMsg += "\nIt's your shift :)"; 
+                send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 timer();
             }
-        }
-        else if (game.x == 1) {
-            int orderNum = strToNum(order);
-            if (game.shift == 1) {
-                timer();
-                if (clients[0].getName() == client.getName()) {
-                    bool flag = game.setP1G1(orderNum);
-                    if (flag) {
-                        game.shift = 2;
-                        start = true;
-                        member = orderNum;
-                        sendMsg = game.playGround1();
-                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)"; 
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+            else if (game.x == 1) {
+                int orderNum = strToNum(order);
+                if (game.shift == 1) {
+                    timer();
+                    if (clients[0].getName() == client.getName()) {
+                        bool flag = game.setP1G1(orderNum);
+                        if (flag) {
+                            game.shift = 2;
+                            start = true;
+                            member = orderNum;
+                            sendMsg = game.playGround1();
+                            send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                            sendMsg += "\nIt's your shift :)";
+                            send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
-                    }
-                    else {
-                        sendMsg = "Home isn't exist :( Please enter a home =)";
-                        for (int i = 0; i < clients.size(); ++i) {
-                            if (clients[i].getName() == client.getName())
-                                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        }
+                        else {
+                            sendMsg = "Home isn't exist :( Please enter a home =)";
+                            for (int i = 0; i < clients.size(); ++i) {
+                                if (clients[i].getName() == client.getName())
+                                    send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                            }
                         }
                     }
                 }
                 bool win = game.checkWinningP1();
                 if (win) {
-                    sendMsg ="\n=============\nWinner : " +client.getName()+"\n=============\n";
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
                     for (int i = 0; i < clients.size(); ++i) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
                     game.x = -1;
                 }
-                
+
             }
             else if (game.shift == 2) {
                 timer();
@@ -2476,8 +2477,8 @@ void main2(Client client) {
                         start = true;
                         member = orderNum;
                         sendMsg = game.playGround1();
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)"; 
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
                         send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
                     }
@@ -2520,9 +2521,9 @@ void main2(Client client) {
                         start = true;
                         member = orderNum;
                         sendMsg = game.playGround2();
-                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)"; 
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
                     }
                     else {
@@ -2553,8 +2554,8 @@ void main2(Client client) {
                         start = true;
                         member = orderNum;
                         sendMsg = game.playGround2();
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)";  
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
                         send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
                     }
@@ -2597,9 +2598,9 @@ void main2(Client client) {
                         start = true;
                         member = orderNum;
                         sendMsg = game.playGround3();
-                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)";  
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
                     }
                     else {
@@ -2612,14 +2613,14 @@ void main2(Client client) {
                 }
                 bool win = game.checkWinningP1();
                 if (win) {
-                    sendMsg ="\n=============\nWinner : " +client.getName()+"\n=============\n";
+                    sendMsg = "\n=============\nWinner : " + client.getName() + "\n=============\n";
                     for (int i = 0; i < clients.size(); ++i) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
                     game.x = -1;
                 }
-                
+
             }
             else if (game.shift == 2) {
                 timer();
@@ -2630,9 +2631,9 @@ void main2(Client client) {
                         start = true;
                         member = orderNum;
                         sendMsg = game.playGround3();
-                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
-                        sendMsg += "\nIt's your shift :)";  
-                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0); 
+                        send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
+                        sendMsg += "\nIt's your shift :)";
+                        send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
 
                     }
                     else {
@@ -2746,7 +2747,6 @@ int main(int argc, char* argv[])
         threads.push_back(thread(main2, client));
     }
 
-
     getchar();
 
     closesocket(s);
@@ -2754,16 +2754,15 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-    void timer() {
-        for (int i = 20; i != 0; i--) {
-            string str = to_string(i);
-            str += "-";
-            if (game.shift == 1)
-                send(clients[0].getSocket(), str.c_str(), str.size(), 0);
-            else if (game.shift == 2)
-                send(clients[1].getSocket(), str.c_str(), str.size(), 0);
-            sleep_until(system_clock::now() + seconds(5));
-            i=i-5;
-        }
+void timer() {
+    for (int i = 20; i != 0; i--) {
+        string str = to_string(i);
+        str += "-";
+        if (TicTacToe::shift == 1)
+            send(clients[0].getSocket(), str.c_str(), str.size(), 0);
+        else if (TicTacToe::shift == 2)
+            send(clients[1].getSocket(), str.c_str(), str.size(), 0);
+        sleep_until(system_clock::now() + seconds(5));
+        i = i - 5;
     }
+}
