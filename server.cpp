@@ -61,10 +61,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer = "*";
+        answer = "X";
     }
     else if (flag == 2) {
-        answer = "+";
+        answer = "O";
     }
     else {
         answer = "1";
@@ -86,10 +86,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "2";
@@ -111,10 +111,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "3";
@@ -137,10 +137,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "4";
@@ -162,10 +162,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "5";
@@ -187,10 +187,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "6";
@@ -213,10 +213,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "7";
@@ -238,10 +238,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "8";
@@ -263,10 +263,10 @@ string TicTacToe::playGround1() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "9";
@@ -295,10 +295,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer = "* ";
+        answer = "X ";
     }
     else if (flag == 2) {
-        answer = "+ ";
+        answer = "O ";
     }
     else {
         answer = "1 ";
@@ -320,10 +320,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " * ";
+        answer += " X ";
     }
     else if (flag == 2) {
-        answer += " + ";
+        answer += " O ";
     }
     else {
         answer += " 2 ";
@@ -345,10 +345,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += " 3";
@@ -372,10 +372,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " * ";
+        answer += " X ";
     }
     else if (flag == 2) {
-        answer += " + ";
+        answer += " O ";
     }
     else {
         answer += " 4 ";
@@ -397,10 +397,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " * ";
+        answer += " X ";
     }
     else if (flag == 2) {
-        answer += " + ";
+        answer += " O ";
     }
     else {
         answer += " 5 ";
@@ -422,10 +422,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " * ";
+        answer += " X ";
     }
     else if (flag == 2) {
-        answer += " + ";
+        answer += " O ";
     }
     else {
         answer += " 6 ";
@@ -448,10 +448,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "7";
@@ -473,10 +473,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "8";
@@ -498,10 +498,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "9";
@@ -523,10 +523,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "10";
@@ -549,10 +549,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "11";
@@ -574,10 +574,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "12";
@@ -599,10 +599,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "  *";
+        answer += "  X";
     }
     else if (flag == 2) {
-        answer += "  +";
+        answer += "  O";
     }
     else {
         answer += " 13";
@@ -626,10 +626,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += "X ";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += "O ";
     }
     else {
         answer += "14";
@@ -651,10 +651,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " * ";
+        answer += " X ";
     }
     else if (flag == 2) {
-        answer += " + ";
+        answer += " O ";
     }
     else {
         answer += " 15 ";
@@ -676,10 +676,10 @@ string TicTacToe::playGround2() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += "O";
     }
     else {
         answer += "16";
@@ -707,10 +707,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer = " *";
+        answer = " X";
     }
     else if (flag == 2) {
-        answer = " +";
+        answer = " O";
     }
     else {
         answer = " 1";
@@ -732,10 +732,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "2";
@@ -757,10 +757,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "3";
@@ -782,10 +782,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "4";
@@ -807,10 +807,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "5";
@@ -832,10 +832,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "6";
@@ -857,10 +857,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "7";
@@ -882,10 +882,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "8";
@@ -907,10 +907,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "9";
@@ -932,10 +932,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "10";
@@ -957,10 +957,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "11";
@@ -982,10 +982,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += "X ";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += "O ";
     }
     else {
         answer += "12";
@@ -1007,10 +1007,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += " O";
     }
     else {
         answer += "13";
@@ -1032,10 +1032,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += "X ";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += "O ";
     }
     else {
         answer += "14";
@@ -1057,10 +1057,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "15";
@@ -1082,10 +1082,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "16";
@@ -1107,10 +1107,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "* ";
+        answer += "X ";
     }
     else if (flag == 2) {
-        answer += "+ ";
+        answer += "O ";
     }
     else {
         answer += "17";
@@ -1132,10 +1132,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "18";
@@ -1157,10 +1157,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "-*";
+        answer += "-X";
     }
     else if (flag == 2) {
-        answer += "-+";
+        answer += "-O";
     }
     else {
         answer += "19";
@@ -1182,10 +1182,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += " *";
+        answer += " X";
     }
     else if (flag == 2) {
-        answer += " +";
+        answer += " O";
     }
     else {
         answer += "20";
@@ -1207,10 +1207,10 @@ string TicTacToe::playGround3() {
         }
     }
     if (flag == 1) {
-        answer += "*";
+        answer += "X";
     }
     else if (flag == 2) {
-        answer += "+";
+        answer += "O";
     }
     else {
         answer += "21";

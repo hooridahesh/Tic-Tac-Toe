@@ -7,6 +7,7 @@ Initialise Winsock
 #include <iostream>
 #include<string>
 #include<thread>
+#include <windows.h>  
 
 using namespace std;
 
@@ -51,7 +52,7 @@ int main(int argc, char* argv[])
     WSADATA wsa;
     SOCKET s;
     struct sockaddr_in server;
-
+    system("Color 71");
     cout << "\nInitialising Winsock...";
     if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
     {
