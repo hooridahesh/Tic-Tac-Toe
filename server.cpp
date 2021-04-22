@@ -15,8 +15,6 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-void timer();
-
 class TicTacToe {
 private:
     string answer;
@@ -2411,7 +2409,6 @@ void main2(Client client) {
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-                timer();
             }
             else if (order == "2") {
                 sendMsg = game.playGround2();
@@ -2419,7 +2416,6 @@ void main2(Client client) {
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-                timer();
             }
             else if (order == "3") {
                 sendMsg = game.playGround3();
@@ -2427,13 +2423,11 @@ void main2(Client client) {
                 send(clients[1].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 sendMsg += "\nIt's your shift :)";
                 send(clients[0].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-                timer();
             }
         }
         else if (game.x == 1) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
-                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G1(orderNum);
                     if (flag) {
@@ -2466,7 +2460,6 @@ void main2(Client client) {
                 }
             }
             else if (game.shift == 2) {
-                timer();
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G1(orderNum);
                     if (flag) {
@@ -2510,7 +2503,6 @@ void main2(Client client) {
         else if (game.x == 2) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
-                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G2(orderNum);
                     if (flag) {
@@ -2543,7 +2535,6 @@ void main2(Client client) {
 
             }
             else if (game.shift == 2) {
-                timer();
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G2(orderNum);
                     if (flag) {
@@ -2587,7 +2578,6 @@ void main2(Client client) {
         else if (game.x == 3) {
             int orderNum = strToNum(order);
             if (game.shift == 1) {
-                timer();
                 if (clients[0].getName() == client.getName()) {
                     bool flag = game.setP1G3(orderNum);
                     if (flag) {
@@ -2620,7 +2610,6 @@ void main2(Client client) {
 
             }
             else if (game.shift == 2) {
-                timer();
                 if (clients[1].getName() == client.getName()) {
                     bool flag = game.setP2G3(orderNum);
                     if (flag) {
@@ -2730,10 +2719,12 @@ int main(int argc, char* argv[])
         msg[recv_size] = '\0';
 
         cout << msg << " is connected!!" << endl;
-
+        int timeout = 20000;
+        setsockopt(new_socket, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(int));
         Client client(new_socket, string(msg));
         clients.push_back(client);
         threads.push_back(thread(main2, client));
+
     }
 
     getchar();
@@ -2742,16 +2733,4 @@ int main(int argc, char* argv[])
     WSACleanup();
 
     return 0;
-}
-
-void timer() {
-    for (int i = 20; i != 0; i--) {
-        string str = to_string(i);
-        if (TicTacToe::shift == 1)
-            send(clients[0].getSocket(), str.c_str(), str.size(), 0);
-        else if (TicTacToe::shift == 2)
-            send(clients[1].getSocket(), str.c_str(), str.size(), 0);
-        sleep_until(system_clock::now() + seconds(5));
-        i = i - 4;
-    }
 }

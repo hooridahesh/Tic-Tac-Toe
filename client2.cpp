@@ -1,7 +1,3 @@
-/*
-Initialise Winsock
-*/
-
 #include<stdio.h>
 #include<winsock2.h>
 #include <iostream>
@@ -11,7 +7,7 @@ Initialise Winsock
 
 using namespace std;
 
-#pragma comment(lib,"ws2_32.lib") //Winsock Library
+#pragma comment(lib,"ws2_32.lib") 
 #pragma warning(disable:4996)
 
 
@@ -74,7 +70,6 @@ int main(int argc, char* argv[])
     server.sin_family = AF_INET;
     server.sin_port = htons(8080);
 
-    //Connect to remote server
     if (connect(s, (struct sockaddr*)&server, sizeof(server)) < 0)
     {
         puts("connect error");
@@ -88,7 +83,9 @@ int main(int argc, char* argv[])
     cout << "3. Playground number 3" << endl;
     cout << "4. Help => Enter --help or -h" << endl;
     cout << "5. Exit => Enter --exit" << endl;
-    //Send name
+    cout << endl << "******************************************" << endl;
+    cout << "Your Time is 20 seconds for press key and enter! =)" << endl;
+    cout << endl << "******************************************" << endl;
     cout << "Enter your name:" << endl;
     string name;
     cin >> name;
