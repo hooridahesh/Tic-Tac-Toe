@@ -1,6 +1,3 @@
-/*
-Bind socket to port 8888 on localhost
-*/
 #include<io.h>
 #include<stdio.h>
 #include<winsock2.h>
@@ -12,7 +9,7 @@ Bind socket to port 8888 on localhost
 #include<cstdio>
 #include <chrono>
 
-#pragma comment(lib,"ws2_32.lib") //Winsock Library
+#pragma comment(lib,"ws2_32.lib") 
 
 using namespace std;
 using namespace std::this_thread;
@@ -2138,7 +2135,6 @@ bool TicTacToe::setP1G1(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2166,7 +2162,6 @@ bool TicTacToe::setP2G1(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2194,7 +2189,6 @@ bool TicTacToe::setP1G2(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2222,7 +2216,6 @@ bool TicTacToe::setP2G2(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2250,7 +2243,6 @@ bool TicTacToe::setP1G3(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2278,7 +2270,6 @@ bool TicTacToe::setP2G3(int p) {
         return true;
     }
     else {
-        //cout << "Khane vared shode mojod nist!!" << endl;
         return false;
     }
 }
@@ -2330,17 +2321,23 @@ int strToNum(string str) {
 }
 
 void main2(Client client) {
-    //if (!start==false) {
     TicTacToe game;
-    //start = true;
-//}
     int recv_size;
     while (1) {
 
         char msg[2000];
         if ((recv_size = recv(client.getSocket(), msg, 2000, 0)) == SOCKET_ERROR)
         {
+            string str;
+            for (int i = 0; i < clients.size(); ++i) {
+                if (clients[i].getName() != client.getName()) {
+                    str = client.getName() + " is offline :(\nYou win:))))";
+                     send(clients[i].getSocket(), str.c_str(), str.size(), 0);
+                }
+            }
             puts("recv failed");
+            closesocket(client.getSocket());
+            break;
         }
         msg[recv_size] = '\0';
         if (start && game.shift == 1 && game.x == 1 && clients[0].getName() == client.getName()) {
@@ -2673,8 +2670,6 @@ void main2(Client client) {
         }
     }
 }
-//static int shift = 1;
-//static int x = 0;
 int TicTacToe::x = 0;
 int TicTacToe::shift = 1;
 int main(int argc, char* argv[])
@@ -2693,7 +2688,6 @@ int main(int argc, char* argv[])
 
     printf("Initialised.\n");
 
-    //Create a socket
     if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
     {
         printf("Could not create socket : %d", WSAGetLastError());
@@ -2701,13 +2695,11 @@ int main(int argc, char* argv[])
 
     printf("Socket created.\n");
 
-    //Prepare the sockaddr_in structure
     struct sockaddr_in server;
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port = htons(8080);
 
-    //Bind
     if (bind(s, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR)
     {
         printf("Bind failed with error code : %d", WSAGetLastError());
@@ -2715,10 +2707,8 @@ int main(int argc, char* argv[])
 
     puts("Bind done");
 
-    //Listen to incoming connections
     listen(s, 3);
 
-    //Accept and incoming connection
     puts("Waiting for incoming connections...");
 
     struct sockaddr_in client;
@@ -2753,6 +2743,7 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
 void timer() {
     for (int i = 20; i != 0; i--) {
         string str = to_string(i);
