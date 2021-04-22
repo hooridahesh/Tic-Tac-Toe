@@ -17,9 +17,33 @@ void sendTo(SOCKET s)
     while (1)
     {
         getline(cin, msg);
-        if (send(s, msg.c_str(), msg.length(), 0) < 0)
-        {
-            puts("Send failed");
+        if (msg == "-h" || msg == "--help") {
+            string str = "\n==========================================\n";
+            str += "Playground's name: 1\n";
+            str += "The size of the ground : 9 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
+            str += "\n==========================================\n";
+            str += "Playground's name: 2\n";
+            str += "The size of the ground : 16 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |       |  |\n7--8       9--10\n|  |       |  |\n| 11 -12- 13  |\n|      |      |\n|      |      |\n14---- 15 ----16\n";
+            str += "\n==========================================\n";
+            str += "Playground's name: 3\n";
+            str += "The size of the ground : 21 Homes\n";
+            str += "The condition of winning: Selected 3 homes continuous\n";
+            str += "Earth shape: \n";
+            str += " 1------2------3\n |      |      |\n |      |      |\n |  4---5---6  |\n |  |   |   |  |\n |  | 7-8-9 |  |\n |  | |   | |  |\n10-11-12 13-14-15\n |  | |   | |  |\n |  |16---17|  |\n |  |/     \\|  |\n | 18------19  |\n |/           \\|\n20-------------21\n";
+            str += "\n==========================================\n";
+            cout << str;
+        }
+        else {
+            if (send(s, msg.c_str(), msg.length(), 0) < 0)
+            {
+                puts("Send failed");
+            }
         }
     }
 }

@@ -2285,30 +2285,10 @@ public:
     SOCKET getSocket() { return sock; }
     string getName() { return name; }
 };
-
+int endd;
 vector<Client> clients;
 vector<thread> threads;
 int member;
-void receiveFrom(Client client) {
-
-
-    int recv_size;
-    while (1) {
-        char msg[2000];
-        if ((recv_size = recv(client.getSocket(), msg, 2000, 0)) == SOCKET_ERROR)
-        {
-            puts("recv failed");
-        }
-
-        msg[recv_size] = '\0';
-        string sendMsg = client.getName() + ": " + string(msg);
-        for (int i = 0; i < clients.size(); ++i) {
-            if (clients[i].getName() != client.getName())
-                send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
-        }
-    }
-
-}
 
 bool start;
 int strToNum(string str) {
@@ -2327,10 +2307,12 @@ void main2(Client client) {
         if ((recv_size = recv(client.getSocket(), msg, 2000, 0)) == SOCKET_ERROR)
         {
             string str;
-            for (int i = 0; i < clients.size(); ++i) {
-                if (clients[i].getName() != client.getName()) {
-                    str = client.getName() + " is offline :(\nYou win:))))";
-                     send(clients[i].getSocket(), str.c_str(), str.size(), 0);
+            if (endd == 0) {
+                for (int i = 0; i < clients.size(); ++i) {
+                    if (clients[i].getName() != client.getName()) {
+                        str = client.getName() + " is offline :(\nYou win:))";
+                        send(clients[i].getSocket(), str.c_str(), str.size(), 0);
+                    }
                 }
             }
             puts("recv failed");
@@ -2370,37 +2352,15 @@ void main2(Client client) {
         }
         string sendMsg = client.getName() + " : ";
         string order = string(msg);
-        if (order == "-h" || order == "--help") {
-            string str = "\n==========================================\n";
-            str += "Playground's name: 1\n";
-            str += "The size of the ground : 9 Homes\n";
-            str += "The condition of winning: Selected 3 homes continuous\n";
-            str += "Earth shape: \n";
-            str += "1---2---3\n|   |   |\n4---5---6\n|   |   |\n7---8---9\n";
-            str += "\n==========================================\n";
-            str += "Playground's name: 2\n";
-            str += "The size of the ground : 16 Homes\n";
-            str += "The condition of winning: Selected 3 homes continuous\n";
-            str += "Earth shape: \n";
-            str += "1 ---- 2 ---- 3\n|      |      |\n|      |      |\n|  4 - 5 - 6  |\n|  |       |  |\n7--8       9--10\n|  |       |  |\n| 11 -12- 13  |\n|      |      |\n|      |      |\n14---- 15 ----16\n";
-            str += "\n==========================================\n";
-            str += "Playground's name: 3\n";
-            str += "The size of the ground : 21 Homes\n";
-            str += "The condition of winning: Selected 3 homes continuous\n";
-            str += "Earth shape: \n";
-            str += " 1------2------3\n |      |      |\n |      |      |\n |  4---5---6  |\n |  |   |   |  |\n |  | 7-8-9 |  |\n |  | |   | |  |\n10-11-12 13-14-15\n |  | |   | |  |\n |  |16---17|  |\n |  |/     \\|  |\n | 18------19  |\n |/           \\|\n20-------------21\n";
-            str += "\n==========================================\n";
+        if (order == "--exit") {
+            string str;
+            str = client.getName() + " is offline :(\nYou win:))";
             for (int i = 0; i < clients.size(); ++i) {
-                if (clients[i].getName() == client.getName())
+                if (clients[i].getName() != client.getName())
                     send(clients[i].getSocket(), str.c_str(), str.size(), 0);
             }
-        }
-        else if (order == "--exit") {
-            string str = "--exit";
-            for (int i = 0; i < clients.size(); ++i) {
-                if (clients[i].getName() == client.getName())
-                    send(clients[i].getSocket(), str.c_str(), str.size(), 0);
-            }
+            closesocket(client.getSocket());
+            break;
         }
         else if (game.x == 0) {
             if (order == "1") {
@@ -2456,6 +2416,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
             }
@@ -2487,6 +2448,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
             }
@@ -2497,6 +2459,7 @@ void main2(Client client) {
                     if (true)
                         send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 }
+                endd = 1;
                 game.x = -1;
             }
         }
@@ -2530,6 +2493,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
 
@@ -2562,6 +2526,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
             }
@@ -2572,6 +2537,7 @@ void main2(Client client) {
                     if (true)
                         send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 }
+                endd = 1;
                 game.x = -1;
             }
         }
@@ -2605,6 +2571,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
 
@@ -2637,6 +2604,7 @@ void main2(Client client) {
                         if (true)
                             send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                     }
+                    endd = 1;
                     game.x = -1;
                 }
             }
@@ -2647,6 +2615,7 @@ void main2(Client client) {
                     if (true)
                         send(clients[i].getSocket(), sendMsg.c_str(), sendMsg.size(), 0);
                 }
+                endd = 1;
                 game.x = -1;
             }
         }
@@ -2668,6 +2637,7 @@ int main(int argc, char* argv[])
     int c;
     const char* message;
     start = false;
+    endd = 0;
     printf("\nInitialising Winsock...");
     if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
     {
