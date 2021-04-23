@@ -125,12 +125,12 @@ int main(int argc, char* argv[])
 	return 0;
 }
 void Timer() {
-    for (int i = 20; i >= 0; i--) {
+	for (int i = 20; i >= 0; i--) {
 		string str = "|| ";
 		str += to_string(i);
-        str += " ||";
-        sleep_until(system_clock::now() + seconds(5));
-        i = i - 1;
+		str += " ||";
+		sleep_until(system_clock::now() + seconds(2));
+		i = i - 1;
 		cout << str << endl;
-    }
+	}
 }
