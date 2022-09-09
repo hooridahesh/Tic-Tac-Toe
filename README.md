@@ -8,9 +8,9 @@
 <p>Any player who first fills three houses in a row from a horizontal or vertical row wins and the game ends.</p>
 
 ### 🔸Things we expect to implement in the future:
-:
-### 🔸How to run the game::
-
+??
+### 🔸How to run the game:
+??
 ### 🔸This game is made by:
 **Hoori Dahesh :**<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: h.dahesh.2000@gmail.com <br />
