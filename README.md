@@ -8,9 +8,13 @@
 <p>Any player who first fills three houses in a row from a horizontal or vertical row wins and the game ends.</p>
 
 ### 🔸Things we expect to implement in the future:
-??
+<p>1- A timer of 20 seconds should be shown for each player on his own page.</p>
+<p>2- This server should support more than two clients and run several games at the same time and show the number of online players.</p>
+<p>3- Creating a chat page where each player can chat with his opponent.</p>
+
 ### 🔸How to run the game:
-??
+<p>It is enough to open each of the .cpp files in a separate console environment such as Visual Studio. After that, we must run the server.cpp file first and then the client.cpp files.</p>
+
 ### 🔸This game is made by:
 **Hoori Dahesh :**<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: h.dahesh.2000@gmail.com <br />
